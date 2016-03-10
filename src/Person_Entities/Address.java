@@ -11,8 +11,16 @@ public class Address {
         this.country = country;
     }
 
-    public String countryAtTheEnd() {
-        return ", " + country;
+    public String countryOfTheGuest() {
+        return  country;
+    }
+
+    public String stateOfTheGuest(){
+        return state;
+    }
+
+    public String cityOfTheGuest(){
+        return city;
     }
 
 }

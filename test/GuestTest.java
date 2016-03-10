@@ -8,25 +8,25 @@ public class GuestTest {
     @Test
     public void testTostringReturnNameInCasualFormat() throws Exception {
         Guest myGuest = new Guest(new Name("Brindaban", "Patra"), "Male", "21", new Address("Ghatal", "West Bengal", "India"));
-        Assert.assertEquals("Mr Brindaban Patra", myGuest.toString("casual"));
+        Assert.assertEquals("Mr Brindaban Patra", myGuest.toString("firstLast"));
     }
 
     @Test
     public void testTostringReturnsNameInFormalFormat() throws Exception {
         Guest myGuest = new Guest(new Name("Sampriti", "Patra"), "Female", "21", new Address("Ghatal", "West Bengal", "India"));
-        Assert.assertEquals("Ms Patra, Sampriti", myGuest.toString("formal"));
+        Assert.assertEquals("Ms Patra, Sampriti", myGuest.toString("lastFirst"));
     }
 
     @Test
     public void testNameWithAgeReturnNameWithTheAgeOfGivenFormat() throws Exception {
         Guest myGuest = new Guest(new Name("Sampriti", "Patra"), "Female", "21", new Address("Ghatal", "West Bengal", "India"));
-        Assert.assertEquals("Ms Sampriti Patra, 21", myGuest.nameWithAge("casual"));
+        Assert.assertEquals("Ms Sampriti Patra, 21", myGuest.nameWithAge("firstLast"));
     }
 
     @Test
     public void testNameWithAgeAndCountryReturnNameWithAgeAndCountryOfGivenFormat() throws Exception {
         Guest myGuest = new Guest(new Name("Sampriti", "Patra"), "Female", "21", new Address("Ghatal", "West Bengal", "India"));
-        Assert.assertEquals("Ms Sampriti Patra, India, 21", myGuest.nameWithAgeAndCountry("casual"));
+        Assert.assertEquals("Ms Sampriti Patra, India, 21", myGuest.nameWithAgeAndCountry("firstLast"));
     }
 
     @Test

@@ -13,6 +13,7 @@ public class OptionHandler {
     public OptionHandler(GuestList list, String[] commandLineAgruments) {
         this.list = list;
         this.commandLineAgruments = commandLineAgruments;
+        nameFormat = "firstLast";
     }
 
     private void getUserRequirments() {
@@ -41,6 +42,7 @@ public class OptionHandler {
 
     private void setNameFormat() {
         int nameFormatIndex = Arrays.asList(commandLineAgruments).indexOf("-nameFormat");
+        if (nameFormatIndex==-1) return;
         nameFormat = commandLineAgruments[nameFormatIndex + 1];
     }
 

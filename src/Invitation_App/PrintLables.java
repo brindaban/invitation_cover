@@ -1,6 +1,5 @@
 package Invitation_App;
 
-
 import DataStorage.DataRead;
 import Person_Entities.GuestList;
 

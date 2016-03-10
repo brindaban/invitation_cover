@@ -44,14 +44,14 @@ public class CountryTest {
         Guest secondGuest = new Guest(new Name("Sampriti", "Ghosh"), "Female", "20", new Address("Dimond Harbour", "West Bengal", "India"));
         India.add(firstGuest);
         India.add(secondGuest);
-        String[] guests = India.getAll("Casual");
+        String[] guests = India.getAll("lastFirst");
         String[] expectedGuests = {"Mr Patra, Brindaban, India",
                 "Ms Ghosh, Sampriti, India"};
         Assert.assertArrayEquals(expectedGuests, guests);
     }
 
     @Test
-    public void testgetAllWithTheAgeReturnsAllTheGuestOfTheCountryWithTheNameAndTheAgeWhoIsOlderThanGivenAgeOrAaGivenAge() throws Exception {
+    public void testgetAllWithTheAgeReturnsAllTheGuestOfTheCountryWithTheNameAndTheAgeWhoIsOlderThanGivenAgeOrAsGivenAge() throws Exception {
         Country India = new Country("India");
         Guest firstGuest = new Guest(new Name("Brindaban", "Patra"), "Male", "21", new Address("Ghatal", "West Bengal", "India"));
         Guest secondGuest = new Guest(new Name("Sampriti", "Ghosh"), "Female", "20", new Address("Dimond Harbour", "West Bengal", "India"));
@@ -59,6 +59,6 @@ public class CountryTest {
         India.add(secondGuest);
         String[] expectedGuests = {"Mr Patra, Brindaban, India, 21"};
 
-        Assert.assertArrayEquals(expectedGuests, India.getAllWithTheAge(21, "Casual"));
+        Assert.assertArrayEquals(expectedGuests, India.getAllWithTheAge(21, "lastFirst"));
     }
 }

@@ -48,8 +48,7 @@ public class GuestList {
         for (Guest eachGuest : list) {
             allGuestWithTheAge.add(eachGuest.toString(format));
         }
-        String[] allGuest = new String[allGuestWithTheAge.size()];
-        return allGuestWithTheAge.toArray(allGuest);
+        return allGuestWithTheAge.toArray(new String[allGuestWithTheAge.size()]);
     }
 
     public String[] getGuestOfCountryAccordingGivenFormat(String country, String format) {
@@ -74,7 +73,6 @@ public class GuestList {
             if (eachGuest.isAbove(age))
                 allGuestWithTheAge.add(eachGuest.nameWithAge(format));
         }
-        String[] allGuest = new String[allGuestWithTheAge.size()];
-        return allGuestWithTheAge.toArray(allGuest);
+        return allGuestWithTheAge.toArray(new String[allGuestWithTheAge.size()]);
     }
 }

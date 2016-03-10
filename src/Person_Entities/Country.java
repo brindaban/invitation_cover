@@ -40,25 +40,16 @@ public class Country {
 
     public String[] getAll(String format) {
         List<String> allGuest = new ArrayList<>();
-        Guest[] guests = new Guest[guestList.size()];
-        guestList.toArray(guests);
-        String[] allNames = new String[guestList.size()];
-        for (Guest guest : guests)
+        for (Guest guest : guestList)
             allGuest.add(guest.toString(format) + delimiter() + this.name);
-        return allGuest.toArray(allNames);
+        return allGuest.toArray(new String[guestList.size()]);
     }
 
     public String[] getAllWithTheAge(int age, String format) {
         List<String> allGuest = new ArrayList<>();
-        Guest[] guests = new Guest[guestList.size()];
-        guestList.toArray(guests);
-        for (Guest eachGuest : guests) {
+        for (Guest eachGuest : guestList)
             if (eachGuest.isAbove(age))
                 allGuest.add(eachGuest.nameWithAgeAndCountry(format));
-        }
-        String[] allNameWithAgeAndCoutry = new String[allGuest.size()];
-        return allGuest.toArray(allNameWithAgeAndCoutry);
+        return allGuest.toArray(new String[allGuest.size()]);
     }
-
-
 }

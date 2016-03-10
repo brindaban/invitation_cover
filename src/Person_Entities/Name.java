@@ -22,10 +22,10 @@ public class Name {
     }
 
     public String withPrefix(String gender, String format) {
-        String name;
-        if (format.equals("casual"))
+        String name = null;
+        if (format.equals("firstLast"))
             name = casualName();
-        else
+        else if (format.equals("lastFirst"))
             name = formalName();
         return addPrefix(name, gender);
     }

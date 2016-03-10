@@ -30,7 +30,7 @@ public class Guest {
     }
 
     public String nameWithAgeAndCountry(String option) {
-        return this.name.withPrefix(gender, option) + address.countryAtTheEnd() + delimeter() + age;
+        return this.name.withPrefix(gender, option) + delimeter()+address.countryOfTheGuest() + delimeter() + age;
     }
 
 }
