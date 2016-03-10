@@ -37,15 +37,15 @@ public class GuestListTest {
     @Test
     public void testGetGuestOfCountryAccordingGivenFormatReturnsAllGuestsWithTheCountryOfGivenCountryAndFormat() throws Exception {
         String[] expectedGuestsOfBangladeshForCasualFormat = {"Ms Melody Dooley, Bangladesh"};
-        Assert.assertArrayEquals(expectedGuestsOfBangladeshForCasualFormat,listOfAllGuests.getGuestOfCountryAccordingGivenFormat("Bangladesh","firstLast"));
+        Assert.assertArrayEquals(expectedGuestsOfBangladeshForCasualFormat, listOfAllGuests.getGuestOfCountryAccordingGivenFormat("Bangladesh", "firstLast"));
         String[] expectedGuestsOfRomaniaForFormalFormat = {"Mr Hyatt, Gavin, Romania"};
-        Assert.assertArrayEquals(expectedGuestsOfRomaniaForFormalFormat,listOfAllGuests.getGuestOfCountryAccordingGivenFormat("Romania","lastFirst"));
+        Assert.assertArrayEquals(expectedGuestsOfRomaniaForFormalFormat, listOfAllGuests.getGuestOfCountryAccordingGivenFormat("Romania", "lastFirst"));
     }
 
     @Test
     public void testGetGuestOfCountryAccordingGivenFormatReturnsEmptyArrayOfStringWhenGivenCountryHasNoGuest() throws Exception {
         String[] expected = new String[0];
-        Assert.assertArrayEquals(expected,listOfAllGuests.getGuestOfCountryAccordingGivenFormat("India","lastFirst"));
+        Assert.assertArrayEquals(expected, listOfAllGuests.getGuestOfCountryAccordingGivenFormat("India", "lastFirst"));
     }
 
     @Test
@@ -54,19 +54,19 @@ public class GuestListTest {
                 "Baron,Spinka,Male,34,West Shanna,Vermont,Macedonia",
                 "Kenya,Dicki,Male,32,Veda haven,Illinois,Macedonia"};
         listOfAllGuests.addAllGuest(moreGuests);
-        Assert.assertEquals(6,listOfAllGuests.getNoOfGuest());
+        Assert.assertEquals(6, listOfAllGuests.getNoOfGuest());
 
         String[] expectedGuestOfMacedoniaAboveAgeTwentyForCasualFormat = {"Ms Abdul Boyer, Macedonia, 25",
-                    "Mr Baron Spinka, Macedonia, 34",
-                    "Mr Kenya Dicki, Macedonia, 32"};
+                "Mr Baron Spinka, Macedonia, 34",
+                "Mr Kenya Dicki, Macedonia, 32"};
 
-        Assert.assertArrayEquals(expectedGuestOfMacedoniaAboveAgeTwentyForCasualFormat,listOfAllGuests.getAllGuestWithCountryAboveTheGivenAge("Macedonia",20,"firstLast"));
+        Assert.assertArrayEquals(expectedGuestOfMacedoniaAboveAgeTwentyForCasualFormat, listOfAllGuests.getAllGuestWithCountryAboveTheGivenAge("Macedonia", 20, "firstLast"));
     }
 
     @Test
     public void testgetAllGuestWithCountryAboveTheGivenAgeReturnsEmptyArrayOfStringWhenGivenCountryHasNoGuest() throws Exception {
         String[] expected = new String[0];
-        Assert.assertArrayEquals(expected,listOfAllGuests.getAllGuestWithCountryAboveTheGivenAge("India",20,"lastFirst"));
+        Assert.assertArrayEquals(expected, listOfAllGuests.getAllGuestWithCountryAboveTheGivenAge("India", 20, "lastFirst"));
     }
 
     @Test
@@ -74,6 +74,14 @@ public class GuestListTest {
         String[] expectedGuestAboveTwentyFiveAgeAsFormalFormat = {"Ms Dooley, Melody, 31",
                 "Mr Hyatt, Gavin, 36"};
 
-        Assert.assertArrayEquals(expectedGuestAboveTwentyFiveAgeAsFormalFormat,listOfAllGuests.getAllGuestAboveTheGivenAge(25,"lastFirst"));
+        Assert.assertArrayEquals(expectedGuestAboveTwentyFiveAgeAsFormalFormat, listOfAllGuests.getAllGuestAboveTheGivenAge(25, "lastFirst"));
+    }
+
+    @Test
+    public void testGetAllGuestWithAllResidenceReturnsAllGuestsWithAllResidencialAddressAsGivenNameFormat() throws Exception {
+        String[] expectedGuestWithAllResidencialAddress = {"Ms Julius Barrows" + "\n" + "Veda haven, Vermont" + "\n" + "Macedonia",
+                "Ms Melody Dooley" + "\n" + "West Shanna, Vermont" + "\n" + "Bangladesh",
+                "Mr Gavin Hyatt" + "\n" + "Crooks ton, Illinois" + "\n" + "Romania"};
+        Assert.assertArrayEquals(expectedGuestWithAllResidencialAddress,listOfAllGuests.getAllGuestWithAllResidence("firstLast"));
     }
 }

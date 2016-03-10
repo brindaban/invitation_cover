@@ -19,7 +19,12 @@ public class OptionHandler {
     private void getUserRequirments() {
         int countryCommandIndex = Arrays.asList(commandLineAgruments).indexOf("-country");
         int ageCommandIndex = Arrays.asList(commandLineAgruments).indexOf("-age");
+        int patternIndex = Arrays.asList(commandLineAgruments).indexOf("-pattern");
         if (countryCommandIndex == -1 && ageCommandIndex == -1) {
+            if (patternIndex >= 0){
+                result = list.getAllGuestWithAllResidence(nameFormat);
+                return;
+            }
             result = list.getAllGuestNameAsFormat(nameFormat);
             return;
         }
@@ -55,7 +60,19 @@ public class OptionHandler {
         return result;
     }
 
+    private void printTheResultWithThePattern(){
+        for (String guest : result) {
+            System.out.println("+--------------------------------------+");
+            System.out.println(guest);
+            System.out.println("+--------------------------------------+");
+        }
+    }
+
     public void printResult() {
+        if (Arrays.asList(commandLineAgruments).indexOf("-pattern")>=0){
+            printTheResultWithThePattern();
+            return;
+        }
         for (String guest : result) {
             System.out.println(guest);
         }

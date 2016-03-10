@@ -75,4 +75,12 @@ public class GuestList {
         }
         return allGuestWithTheAge.toArray(new String[allGuestWithTheAge.size()]);
     }
+
+    public String[] getAllGuestWithAllResidence(String format) {
+        List<String> allGuestWithAllResidence = new ArrayList<>();
+        for (Guest eachGuest : list)
+            allGuestWithAllResidence.add(eachGuest.nameWithAllResidenceInSeperatedFormat(format));
+        return  allGuestWithAllResidence.toArray(new String[allGuestWithAllResidence.size()]);
+    }
+
 }

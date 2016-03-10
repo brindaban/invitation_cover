@@ -13,16 +13,11 @@ public class AddressTest {
 
     @Test
     public void testCountryOfTheGuestReturnCountry() throws Exception {
-        Assert.assertEquals("India", residence.countryOfTheGuest());
+        Assert.assertEquals(", India", residence.countryRepresentationAtTheEnd());
     }
 
     @Test
-    public void testStateOfTheGuestReturnState() throws Exception {
-        Assert.assertEquals("West Bengal",residence.stateOfTheGuest());
-    }
-
-    @Test
-    public void testCityOfTheGuestReturnCity() throws Exception {
-        Assert.assertEquals("Ghatal",residence.cityOfTheGuest());
+    public void testAllResidenceRepresentation() throws Exception {
+        Assert.assertEquals("Ghatal, West Bengal"+"\n"+"India",residence.allResidenceRepresentation());
     }
 }
