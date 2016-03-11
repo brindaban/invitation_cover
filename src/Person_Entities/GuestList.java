@@ -39,7 +39,7 @@ public class GuestList {
     }
 
 
-    public int getNoOfGuest(){
+    public int getNoOfGuest() {
         return noOfGuest;
     }
 
@@ -80,7 +80,7 @@ public class GuestList {
         List<String> allGuestWithAllResidence = new ArrayList<>();
         for (Guest eachGuest : list)
             allGuestWithAllResidence.add(eachGuest.nameWithAllResidenceInSeperatedFormat(format));
-        return  allGuestWithAllResidence.toArray(new String[allGuestWithAllResidence.size()]);
+        return allGuestWithAllResidence.toArray(new String[allGuestWithAllResidence.size()]);
     }
 
 }

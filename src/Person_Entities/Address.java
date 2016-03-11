@@ -12,11 +12,11 @@ public class Address {
     }
 
     public String countryRepresentationAtTheEnd() {
-        return  ", "+country;
+        return ", " + country;
     }
 
-    public String allResidenceRepresentation(){
-        return city+", "+state+"\n"+country;
+    public String allResidenceRepresentation() {
+        return city + ", " + state + "\n" + country;
     }
 
 }

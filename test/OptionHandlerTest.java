@@ -30,6 +30,19 @@ public class OptionHandlerTest {
     }
 
     @Test
+    public void testOperateWhenUserWantAsPattrenAndThereIsJustNamingFormat() throws Exception {
+        String[] commandLineArguments = {"-nameFormat", "lastFirst","-pattern","-file", "records"};
+        OptionHandler handler = new OptionHandler(listOfAllGuests, commandLineArguments);
+        handler.operate();
+        String[] expectedResult = {"Ms Barrows, Julius" + "\n" + "Veda haven, Vermont" + "\n" + "Macedonia",
+                "Ms Dooley, Melody" + "\n" + "West Shanna, Vermont" + "\n" + "Bangladesh",
+                "Mr Hyatt, Gavin" + "\n" + "Crooks ton, Illinois" + "\n" + "Romania",
+                "Mr Spinka, Baron" + "\n" + "West Shanna, Vermont" + "\n" + "Macedonia"
+        };
+        Assert.assertArrayEquals(expectedResult,handler.ultimateResult());
+    }
+
+    @Test
     public void testOperateWhenThereIsJustNamingFormatAndCountryGiven() throws Exception {
         String[] firstCommandLineArguments = {"-nameFormat", "lastFirst", "-country", "Macedonia", "-file", "records"};
         OptionHandler firstHandler = new OptionHandler(listOfAllGuests, firstCommandLineArguments);
@@ -38,7 +51,7 @@ public class OptionHandlerTest {
         String[] expectedResult = {"Ms Barrows, Julius, Macedonia",
                 "Mr Spinka, Baron, Macedonia"};
         Assert.assertArrayEquals(expectedResult, firstHandler.ultimateResult());
-        String[] secondCommandLineArguments = {"-country", "Macedonia","-nameFormat", "lastFirst", "-file", "records"};
+        String[] secondCommandLineArguments = {"-country", "Macedonia", "-nameFormat", "lastFirst", "-file", "records"};
         OptionHandler secondHandler = new OptionHandler(listOfAllGuests, secondCommandLineArguments);
         secondHandler.operate();
         Assert.assertArrayEquals(expectedResult, secondHandler.ultimateResult());
@@ -53,7 +66,7 @@ public class OptionHandlerTest {
         String[] expectedResult = {"Mr Hyatt, Gavin, 36",
                 "Mr Spinka, Baron, 34"};
         Assert.assertArrayEquals(expectedResult, firstHandler.ultimateResult());
-        String[] secondCommandLineArguments = {"-age", "33","-nameFormat", "lastFirst", "-file", "records"};
+        String[] secondCommandLineArguments = {"-age", "33", "-nameFormat", "lastFirst", "-file", "records"};
         OptionHandler secondHandler = new OptionHandler(listOfAllGuests, secondCommandLineArguments);
         secondHandler.operate();
         Assert.assertArrayEquals(expectedResult, secondHandler.ultimateResult());
@@ -61,15 +74,16 @@ public class OptionHandlerTest {
 
     @Test
     public void testOperateWhenThereIsNamingFormatAndAgeAndCountryGiven() throws Exception {
-        String[] firstCommandLineArguments = {"-nameFormat", "firstLast", "-age", "20","-country","Macedonia" ,"-file", "records"};
+        String[] firstCommandLineArguments = {"-nameFormat", "firstLast", "-age", "20", "-country", "Macedonia", "-file", "records"};
         OptionHandler firstHandler = new OptionHandler(listOfAllGuests, firstCommandLineArguments);
         firstHandler.operate();
 
         String[] expectedResult = {"Mr Baron Spinka, Macedonia, 34"};
         Assert.assertArrayEquals(expectedResult, firstHandler.ultimateResult());
-        String[] secondCommandLineArguments = {"-country","Macedonia","-age", "20","-nameFormat", "firstLast", "-file", "records"};
+        String[] secondCommandLineArguments = {"-country", "Macedonia", "-age", "20", "-nameFormat", "firstLast", "-file", "records"};
         OptionHandler secondHandler = new OptionHandler(listOfAllGuests, secondCommandLineArguments);
         secondHandler.operate();
         Assert.assertArrayEquals(expectedResult, secondHandler.ultimateResult());
     }
+
 }

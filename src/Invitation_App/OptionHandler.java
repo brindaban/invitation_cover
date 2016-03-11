@@ -21,7 +21,7 @@ public class OptionHandler {
         int ageCommandIndex = Arrays.asList(commandLineAgruments).indexOf("-age");
         int patternIndex = Arrays.asList(commandLineAgruments).indexOf("-pattern");
         if (countryCommandIndex == -1 && ageCommandIndex == -1) {
-            if (patternIndex >= 0){
+            if (patternIndex >= 0) {
                 result = list.getAllGuestWithAllResidence(nameFormat);
                 return;
             }
@@ -47,7 +47,7 @@ public class OptionHandler {
 
     private void setNameFormat() {
         int nameFormatIndex = Arrays.asList(commandLineAgruments).indexOf("-nameFormat");
-        if (nameFormatIndex==-1) return;
+        if (nameFormatIndex == -1) return;
         nameFormat = commandLineAgruments[nameFormatIndex + 1];
     }
 
@@ -56,13 +56,13 @@ public class OptionHandler {
         getUserRequirments();
     }
 
-    public String[] ultimateResult(){
+    public String[] ultimateResult() {
         return result;
     }
 
     public void printResult() {
         Printer resultPrinter = new Printer(result);
-        if (Arrays.asList(commandLineAgruments).indexOf("-pattern")>=0)
+        if (Arrays.asList(commandLineAgruments).indexOf("-pattern") >= 0)
             resultPrinter.printTheResultWithThePattern();
         else
             resultPrinter.printTheResultWithOutPattern();
